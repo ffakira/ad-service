@@ -1,5 +1,6 @@
 import express from "express";
 import AuthController from "../controllers/auth.controller";
+import isAuth from "../middlewares/isAuth.middleware";
 
 const router = express.Router();
 
@@ -7,7 +8,7 @@ const router = express.Router();
 router.get("/all", AuthController.getAllUsers);
 
 /** @dev session information about the user*/
-router.get("/session", AuthController.session);
+router.get("/session", isAuth, AuthController.session);
 
 /** @dev authenticate username */
 router.post("/login", AuthController.login);

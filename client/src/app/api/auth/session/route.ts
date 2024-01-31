@@ -8,10 +8,10 @@ import { cookies } from "next/headers";
  * Fetches the session cookie information from `connect.sid`.
  * The max-age is 24 hours.
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const controller = new AbortController();
   const { signal } = controller;
-  const connectSid = cookies().get("connect.sid");
+  const connectSid = cookies().get("connect.sid")!;
 
   const timeout = setTimeout(() => {
     controller.abort();
@@ -68,7 +68,7 @@ export async function GET(request: NextRequest) {
             message: "Server timeout",
           },
         },
-        { Status: 408 }
+        { status: 408 }
       );
     } else {
       return NextResponse.json(

@@ -6,7 +6,7 @@ function isAuth(req: Request, res: Response, next: NextFunction) {
   if (req.session["isAuth"]) {
     next();
   } else {
-    res.status(c.HTTP_STATUS_UNAUTHORIZED).json({
+    return res.status(c.HTTP_STATUS_UNAUTHORIZED).json({
       error: {
         message: "Unauthorized"
       }

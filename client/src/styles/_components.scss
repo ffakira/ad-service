@@ -1,0 +1,63 @@
+@tailwind components;
+
+/** Button styles */
+.btn {
+    @apply text-black px-4 py-2 rounded-lg font-bold cursor-pointer;
+  
+    &-primary {
+      @apply bg-blue-500 hover:bg-blue-600 text-white;
+    }
+  
+    &-success {
+      @apply bg-green-500 hover:bg-green-600 text-white;
+    }
+
+    &-danger {
+      @apply bg-red-500 hover:bg-red-600 text-white;
+    }
+}
+
+@media only screen and (min-width: $screen-md) {
+  .btn {
+    @apply px-8 py-4;
+  }
+}
+
+/** Label */
+label {
+  @apply font-bold text-xl;
+}
+
+/** Input */
+input {
+  @apply border border-black p-2 w-full;
+}
+
+/** Table styles */
+table {
+  @apply w-full text-left;
+}
+
+thead {
+  @apply border-b border-black;
+}
+
+thead tr th {
+  @apply px-2 py-4;
+}
+
+tbody tr td {
+  @apply p-4;
+}
+
+tbody tr:nth-child(odd) {
+  @apply bg-blue-500/20;
+
+  &:hover {
+    @apply bg-blue-500/40;
+  }
+}
+
+tbody tr:nth-child(even):hover {
+  @apply bg-black/20;
+}

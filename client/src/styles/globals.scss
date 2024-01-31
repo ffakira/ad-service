@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind utilities;
+
+@import './variables';
+@import './components';
+
+.container {
+  flex-direction: column;
+  display: flex;
+  width: 100vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-sm;
+}
+
+@media only screen and (min-width: $screen-md) {
+  .container {
+    width: 100vw;
+    max-width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    justify-content: space-between;
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl;
+  }
+  
+  h3 {
+    @apply text-4xl;
+  }
+  
+  h4 {
+    @apply text-3xl;
+  }
+  
+  h5 {
+    @apply text-2xl;
+  }
+  
+  h6 {
+    @apply text-xl;
+  }
+}

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongo_data:/data/db
+    ports:
+    - "27017:27017"
+    networks:
+      - app-network
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    depends_on:
+      - mongodb
+    env_file:
+      - .env.development
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo_data:

@@ -107,7 +107,7 @@ User auth enables a basic session based authentication:
    <tbody>
       <tr>
          <td>GET</td>
-         </td>/all</td>
+         <td>/all</td>
          <td>Get all NFT address</td>
       </tr>
       <tr>

@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
  * @dev utility function to get session api route
  */
 async function getSession() {
-  const connectSid = cookies().get("connect.sid");
+  const connectSid = cookies().get("connect.sid")!;
   try {
     const req = await fetch(
       new URL("http://localhost:3000/api/auth/session").href,
@@ -61,8 +61,7 @@ export async function middleware(request: NextRequest) {
     /** @dev handles /admin path */
     if (isNextUrl("/admin")) {
       const { data } = await getSession();
-      console.log(data);
-      if (data.isAuth /**&& data.isAdmin**/) {
+      if (data.isAuth && data.isAdmin) {
         return NextResponse.next();
       } else {
         return NextResponse.redirect(new URL("/login", request.url));
